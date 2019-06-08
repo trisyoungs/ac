@@ -13,6 +13,5 @@ set -ev
 # Make
 make
 
-# Store artifacts
-mkdir artifacts
+# Store artifacts (the dir will have been created already by Travis)
 cp src/ac artifacts
