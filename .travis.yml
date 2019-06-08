@@ -1,0 +1,25 @@
+# Set language for the project
+language: cpp
+
+# Package dependencies
+addons:
+  apt:
+    packages:
+      - bison
+      - pkg-config
+      - libtool
+      - automake
+  homebrew:
+    packages:
+      - bison
+
+# Build Stages
+jobs:
+  include:
+    - stage: Build
+      name: Linux
+      env: PARALLEL=false
+      os: linux
+      script: ./ci/ubuntu.trusty/ubuntu.build
+    - stage: System Tests
+      script: echo "Hello!"
