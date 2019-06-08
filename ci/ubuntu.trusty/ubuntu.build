@@ -13,3 +13,6 @@ set -ev
 # Make
 make
 
+# Store artifacts
+mkdir artifacts
+cp src/ac artifacts
