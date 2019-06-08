@@ -18,8 +18,12 @@ jobs:
   include:
     - stage: Build
       name: Linux
-      env: PARALLEL=false
       os: linux
       script: ./ci/ubuntu.trusty/ubuntu.build
+      cache:
+        files:
+          - src/ac
     - stage: System Tests
-      script: echo "Hello!"
+      name: Linux
+      os: linux
+      script: echo "Hello!" && src/ac "4+5"
