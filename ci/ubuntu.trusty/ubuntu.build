@@ -7,11 +7,15 @@ set -ev
 ./autogen.sh
 
 # Configure the build
-# - On Ubuntu, need to specify executable names for Qt tools
 ./configure
 
 # Make
 make
+
+# Create appimage
+ci/appimage/make-ac.sh
+
+ls -larth
 
 # Store artifacts (the dir will have been created already by Travis)
 cp src/ac artifacts

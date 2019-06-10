@@ -26,4 +26,4 @@ jobs:
     - stage: System Tests
       name: Linux
       os: linux
-      script: echo "Hello!" && src/ac "4+5"
+      script: echo "Hello!" && ls -larth artifacts/ && src/ac "4+5"
