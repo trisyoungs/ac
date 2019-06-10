@@ -64,5 +64,5 @@ chmod u+x ./linuxdeployqt
 
 # Run on the target binary
 export VERSION=${APPVERSION}
-./linuxdeployqt ${APPDIR}/usr/share/applications/${DESKTOP} -appimage
+./linuxdeployqt ${APPDIR}/usr/share/applications/*.desktop -appimage
 
