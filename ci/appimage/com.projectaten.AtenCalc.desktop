@@ -1,13 +1,12 @@
 [Desktop Entry]
-Version=0.4.1
-Encoding=UTF-8
+Version=1.0
 Comment=AtenCalc - Command-line calculator
 Exec=ac %f
 GenericName=AtenCalc
 Icon=AtenCalc
 Name=AtenCalc
 StartupNotify=false
-Terminal=0
+Terminal=false
 Type=Application
 Categories=Education;
 X-SuSE-translate=false
