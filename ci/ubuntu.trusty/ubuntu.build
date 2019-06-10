@@ -15,7 +15,7 @@ make
 # Retrieve appimage build script
 wget -q https://raw.githubusercontent.com/trisyoungs/scripts/master/build-appimage.sh -O build-appimage.sh
 chmod u+x build-appimage.sh
-build-appimage.sh -a AtenCalc -v 0.1 -b src/ac
+./build-appimage.sh -a AtenCalc -v 0.1 -b src/ac
 
 ls -larth
 
