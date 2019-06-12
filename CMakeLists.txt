@@ -9,12 +9,7 @@ set(VERSION_PATCH "1")
 
 set(CMAKE_BUILD_TYPE "Release")
 
-if(APPLE)
-  cmake_minimum_required(VERSION 2.6.0)
-  set(CMAKE_OSX_ARCHITECTURES "ppc;i386")
-else(APPLE)
-  cmake_minimum_required(VERSION 2.4.8)
-endif(APPLE)
+cmake_minimum_required(VERSION 3.1)
 
 if(COMMAND cmake_policy)
   cmake_policy(VERSION 2.6)
