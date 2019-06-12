@@ -23,10 +23,10 @@ jobs:
       cache:
         directories:
           - artifacts
-    - stage: System Tests
-      name: Linux
-      os: linux
+    - stage: Build
+      name: OSX
+      os: osx
       cache:
         directories:
           - artifacts
-      script: echo "Hello!" && ls -larth artifacts/ && artifacts/ac "4+5"
+      script: ./ci/osx.highsierra/osx.build
