@@ -52,12 +52,12 @@ ${SRCS}/main.cpp
 link_directories (${LIBRARY_OUTPUT_PATH})
 IF(WIN32 OR APPLE)
 target_link_libraries(${target_name} 
-main command parser base classes
+command parser base
 ${READLINE_LIBRARY}
 )
 ELSE(WIN32 OR APPLE)
 target_link_libraries(${target_name} 
-main command parser base classes
+command parser base
 ${READLINE_LIBRARY}
 )
 ENDIF(WIN32 OR APPLE)
