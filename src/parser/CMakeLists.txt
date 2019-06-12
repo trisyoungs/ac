@@ -1,4 +1,7 @@
+bison_target(Parser grammar.yy ${CMAKE_CURRENT_BINARY_DIR}/grammar.cc COMPILE_FLAGS -y )
+
 add_library(parser
+  ${BISON_Parser_OUTPUTS}
 character.cpp
 commandnode.cpp
 double.cpp

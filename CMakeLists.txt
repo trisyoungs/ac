@@ -22,8 +22,15 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 set(SRCS src/)
 
+# Find basic requirements
+include(FindBISON)
+# -- Force first look for Bison to be /usr/local/bin, since version provided by XCode on OSX is too old (v2.3)
+find_package(BISON PATHS /usr/local/bin NO_DEFAULT_PATH QUIET)
+find_package(BISON REQUIRED)
+
 # tell cmake to process CMakeLists.txt in that subdirectory
 add_subdirectory(${SRCS})
+
 
 If(APPLE)
   set(MACOSX_BUNDLE_GUI_IDENTIFIER  "AtenCalc")
