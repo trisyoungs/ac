@@ -12,7 +12,7 @@ addons:
   homebrew:
     packages:
       - bison
-      - create-dmg
+      - homebrew/linuxbrew-core/create-dmg
 
 # Build Stages
 jobs:
