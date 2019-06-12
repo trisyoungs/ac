@@ -154,7 +154,7 @@ int main(int argc, char *argv[])
 		int exec = program.execute(result);
 		if ((exec == 0) && ac.abortOnError) return -1;
 		if (exec == -1) break;
-		if (result.type() == VTypes::IntegerData) printf("%i\n", result.asInteger());
+		if (result.type() == VTypes::IntegerData) printf("%li\n", result.asInteger());
 		else if (result.type() == VTypes::DoubleData) printf("%e\n", result.asDouble());
 		else { if (ac.abortOnError) return -1; }
 
