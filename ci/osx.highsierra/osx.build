@@ -14,8 +14,6 @@ cmake ../
 make
 
 # Ascend back up to root source dir
-ls -larth *
-
 cd ../
 
 # Install create-dmg
