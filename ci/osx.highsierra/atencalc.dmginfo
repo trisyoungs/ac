@@ -8,7 +8,7 @@
 APP_NAME=AtenCalc
 
 # -- APP_VERSION : Should contain the version / revision number of the package (for renaming purposes)
-APP_VERSION="1.0.1"
+APP_VERSION="0.1"
 
 # -- APP_BIN : List of binaries (space-separated, with paths) to include in the bundle
 APP_BIN="build/bin/AtenCalc.app/Contents/MacOS/AtenCalc"

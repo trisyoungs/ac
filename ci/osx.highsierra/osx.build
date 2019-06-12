@@ -20,9 +20,6 @@ cd ../
 wget -q https://raw.githubusercontent.com/trisyoungs/scripts/master/build-dmg.sh -O build-dmg.sh
 chmod u+x build-dmg.sh
 
-# Get current program version that we're building
-VERSION=`grep "DISSOLVEVERSION" src/version.h | sed "s/.*\"\(.*\)\"/\1/g"`
-
 # Build AppImage
 ./build-dmg.sh ci/osx.highsierra/atencalc.dmginfo
 
