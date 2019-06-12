@@ -18,6 +18,9 @@ ls -larth *
 
 cd ../
 
+# Install create-dmg
+brew install create-dmg
+
 # Retrieve dmg build script
 wget -q https://raw.githubusercontent.com/trisyoungs/scripts/master/build-dmg.sh -O build-dmg.sh
 chmod u+x build-dmg.sh
