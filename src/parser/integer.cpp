@@ -81,8 +81,8 @@ void IntegerVariable::nodePrint(int offset, const char *prefix)
 	tab.strcat(prefix);
 
 	// Output node data
-	if (readOnly_) printf("[C]%s%i (constant value)\n", tab.get(), integerData_);
-	else printf("[V]%s%i (variable, name=%s)\n", tab.get(), integerData_, name_.get());
+	if (readOnly_) printf("[C]%s%li (constant value)\n", tab.get(), integerData_);
+	else printf("[V]%s%li (variable, name=%s)\n", tab.get(), integerData_, name_.get());
 }
 
 /*
