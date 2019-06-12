@@ -1,5 +1,4 @@
-project(Aten)
-
+project(AtenCalc)
 
 set(DESCRIPTION "AtenCalc - Command-line calculator")
 set(AUTHOR "Tristan Youngs")
@@ -15,7 +14,7 @@ if(COMMAND cmake_policy)
   cmake_policy(VERSION 2.6)
 endif(COMMAND cmake_policy)
 
-set (target_name Aten)
+set (target_name AtenCalc)
 
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}")
 find_package(READLINE REQUIRED)
