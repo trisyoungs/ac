@@ -5,12 +5,30 @@
 # Enable erroring
 set -e
 
+# Disable command expansion
+set +x
+
+# Prune old continuous releases if we are building from the development branch
+DEVBRANCH="master"
+if [ "${TRAVIS_BRANCH}" = "$DEVBRANCH" ]
+then
+	echo "Pruning old continuous releases..."
+	TAGS=$(curl -XGET --header "Authorization: token ${GITHUB_TOKEN}" https://api.github.com/repos/${TRAVIS_REPO_SLUG}/releases | grep "tag_name" | sed 's/"tag_name": "\(.*\)",/\1/g' )
+	echo "  - Found tags: "$TAGS
+	for tag in $TAGS
+	do
+		if [[ $tag == continuous/* ]]
+		then
+			echo "  ! Deleting $tag..."
+		fi
+	done
+fi
+
 # Set GitHub username and email
 git config --local user.name "trisyoungs"
 git config --local user.email "tristan.youngs@stfc.ac.uk"
 
 # Set a suitable tag for the release
 export TRAVIS_TAG=continuous/$(git log --format=%h -1)
-echo "TRAVIS TAG = "$TRAVIS_TAG
 export RELEASE_NAME="Continuous"
 git tag $TRAVIS_TAG

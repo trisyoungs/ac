@@ -13,6 +13,9 @@ addons:
     packages:
       - bison
 
+# Secrets
+secure: "MZ83siFb+bUNzCUKpwU4IQw2lmvewUP2viEzvmdfrD5MTsGjphfZxTaAbnHSrDt+2KmPnRi/HP4V9jN+RyWLrE1aKhVsuIVReDk8erWa42baafiDZwrNJac+0BP8shQ0cAtSzSA1LAWCVovaCoAU/WfAMEN8N6IpZ1eTqpL7/rBeVQZk38t0mwxGNmHUoFwkFRLrq8bvTbSk/XO2Mw6vrgEpr1cqZvKg6S/4maJEO6rkY2JFDC1eK4BnqgmwWO/8fe6VYAuLL4a/7VH4Jno/q23vdRad4pK/5N/4wyhoB+G/5uAW1PJF/tC2QY11NkFuhTjW/ddXqlrpxi57ev3GDoA4qEFVYWK022N+X0oo2sS7kIs67mgWJiAmw7O3WOugiFOkpz9RB/n4eWGg+i8kKDqNEgWGb1xRTAhUmEuHXO747RMNeZuaQJEqprS9eSBnRFByx01YUhCNd7HW89nsM7V3J/RE9IBsN+lbDPIM1B+flp6pYLRtcTNPCkukzVzTqkviLw1VVKi9XSkixKGL01PflXkteEgcSCXGvr1sExyPv4N1DSg3P+MV7nu8v8kpxKVuqkWhJYO4na4AO2r7o5x8jv7rMkOvBp+yyVaWIyioTthA61fs1WRCZj5jbLFWO6bZ78X5uGuaM2hiBg75usEs6k7DWPuUDwqgPfVu9jk="
+
 # Build Stages
 jobs:
   include:
@@ -28,10 +31,8 @@ jobs:
         provider: releases
         skip_cleanup: true
         name: 22
-        body: "Continuous build ${TRAVIS_BRANCH}"
-        overwrite: true
-        api_key:
-          secure: iNwBgbmSAVWZWIjdk/9K+3tLh0RqkCv8w3Ehw5k79TsvPEXE5vmqduRWebTt0U43ILSYw3JMrM4C0cGaCe6stzBvkm+ypIphZPyE0SZ2tKZLZPw1ri9kgeFa+2+bkVuZvdmDDTa6vJYnJ17gkd8tY4VLdWSwSFb36mHI2cBhgLTyJF/px0SwqAluroi9dtrAOxnHc13cAjyw9WZqSa6RMadSEWuv1QgIpL7d9EI1So6L71yiYLNz6cJHipYElwNVlN6kANAINuAN+3U4IFW7juWHrXrco2W33+YIKDrDBHAq41zEOMZN79qUR2FqcmpQEBjOQOGx6FxCrJWlEkAh2P1ajte0so0QrCUyWXqaP9lLkPBcy0ekPd2nlrSLChvff9tIJZ13II39ONteGkjh+wNc98bCnrBs/LMvLKGl2Yn8ezNwgfKGsSlRvN0DMFXdbEXxMKUojlU0qEXigt2RjcXwqpHYAHEHqeXDILrsUXy5N9/kbwik+RCVD+ipt8owjm/4a0weFNLg5VeCU2GrLbIKyY9z/JPY41aaLzuBkr0jgDg/3N4gMWyd16B+amqux4YdFF66u7cZXas6iF3u104Y8mtugK//z11EBXYB4basXGsa3DbVNMFhzRqIhmVxpEvgzJRIug82Ol04a4fvmmppAsoJ089Bbz9LKxd/odA=
+        body: "Continuous build ${TRAVIS_TAG} ${RELEASE_NAME}"
+        api_key: ${GITHUB_TOKEN}
         file_glob: true
         file: artifacts/*AppImage
     - stage: Build
@@ -45,8 +46,7 @@ jobs:
       deploy:
         provider: releases
         skip_cleanup: true
-        api_key:
-          secure: iNwBgbmSAVWZWIjdk/9K+3tLh0RqkCv8w3Ehw5k79TsvPEXE5vmqduRWebTt0U43ILSYw3JMrM4C0cGaCe6stzBvkm+ypIphZPyE0SZ2tKZLZPw1ri9kgeFa+2+bkVuZvdmDDTa6vJYnJ17gkd8tY4VLdWSwSFb36mHI2cBhgLTyJF/px0SwqAluroi9dtrAOxnHc13cAjyw9WZqSa6RMadSEWuv1QgIpL7d9EI1So6L71yiYLNz6cJHipYElwNVlN6kANAINuAN+3U4IFW7juWHrXrco2W33+YIKDrDBHAq41zEOMZN79qUR2FqcmpQEBjOQOGx6FxCrJWlEkAh2P1ajte0so0QrCUyWXqaP9lLkPBcy0ekPd2nlrSLChvff9tIJZ13II39ONteGkjh+wNc98bCnrBs/LMvLKGl2Yn8ezNwgfKGsSlRvN0DMFXdbEXxMKUojlU0qEXigt2RjcXwqpHYAHEHqeXDILrsUXy5N9/kbwik+RCVD+ipt8owjm/4a0weFNLg5VeCU2GrLbIKyY9z/JPY41aaLzuBkr0jgDg/3N4gMWyd16B+amqux4YdFF66u7cZXas6iF3u104Y8mtugK//z11EBXYB4basXGsa3DbVNMFhzRqIhmVxpEvgzJRIug82Ol04a4fvmmppAsoJ089Bbz9LKxd/odA=
+        api_key: ${GITHUB_TOKEN}
         file: artifacts/*dmg
 
 # Branch Safelist (allow only master and version-tagged branches)
