@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Prepare for deployment on GitHub releases
+
+# Enable erroring
+set -e
+
+# Set GitHub username and email
+git config --local user.name "trisyoungs"
+git config --local user.email "tristan.youngs@stfc.ac.uk"
+
+# Set a suitable tag for the release
+export TRAVIS_TAG=continuous-$(git log --format=%h -1)-$TRAVIS_TAG
+echo "TRAVIS TAG = "$TRAVIS_TAG
+git tag $TRAVIS_TAG

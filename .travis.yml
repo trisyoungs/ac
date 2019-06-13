@@ -23,8 +23,10 @@ jobs:
       cache:
         directories:
           - artifacts
+      before_deploy: ./ci/prep_deploy
       deploy:
         provider: releases
+        skip_cleanup: true
         api_key:
           secure: iNwBgbmSAVWZWIjdk/9K+3tLh0RqkCv8w3Ehw5k79TsvPEXE5vmqduRWebTt0U43ILSYw3JMrM4C0cGaCe6stzBvkm+ypIphZPyE0SZ2tKZLZPw1ri9kgeFa+2+bkVuZvdmDDTa6vJYnJ17gkd8tY4VLdWSwSFb36mHI2cBhgLTyJF/px0SwqAluroi9dtrAOxnHc13cAjyw9WZqSa6RMadSEWuv1QgIpL7d9EI1So6L71yiYLNz6cJHipYElwNVlN6kANAINuAN+3U4IFW7juWHrXrco2W33+YIKDrDBHAq41zEOMZN79qUR2FqcmpQEBjOQOGx6FxCrJWlEkAh2P1ajte0so0QrCUyWXqaP9lLkPBcy0ekPd2nlrSLChvff9tIJZ13II39ONteGkjh+wNc98bCnrBs/LMvLKGl2Yn8ezNwgfKGsSlRvN0DMFXdbEXxMKUojlU0qEXigt2RjcXwqpHYAHEHqeXDILrsUXy5N9/kbwik+RCVD+ipt8owjm/4a0weFNLg5VeCU2GrLbIKyY9z/JPY41aaLzuBkr0jgDg/3N4gMWyd16B+amqux4YdFF66u7cZXas6iF3u104Y8mtugK//z11EBXYB4basXGsa3DbVNMFhzRqIhmVxpEvgzJRIug82Ol04a4fvmmppAsoJ089Bbz9LKxd/odA=
         file: artifacts/*AppImage
@@ -35,8 +37,10 @@ jobs:
         directories:
           - artifacts
       script: ./ci/osx.highsierra/osx.build
+      before_deploy: ./ci/prep_deploy
       deploy:
         provider: releases
+        skip_cleanup: true
         api_key:
           secure: iNwBgbmSAVWZWIjdk/9K+3tLh0RqkCv8w3Ehw5k79TsvPEXE5vmqduRWebTt0U43ILSYw3JMrM4C0cGaCe6stzBvkm+ypIphZPyE0SZ2tKZLZPw1ri9kgeFa+2+bkVuZvdmDDTa6vJYnJ17gkd8tY4VLdWSwSFb36mHI2cBhgLTyJF/px0SwqAluroi9dtrAOxnHc13cAjyw9WZqSa6RMadSEWuv1QgIpL7d9EI1So6L71yiYLNz6cJHipYElwNVlN6kANAINuAN+3U4IFW7juWHrXrco2W33+YIKDrDBHAq41zEOMZN79qUR2FqcmpQEBjOQOGx6FxCrJWlEkAh2P1ajte0so0QrCUyWXqaP9lLkPBcy0ekPd2nlrSLChvff9tIJZ13II39ONteGkjh+wNc98bCnrBs/LMvLKGl2Yn8ezNwgfKGsSlRvN0DMFXdbEXxMKUojlU0qEXigt2RjcXwqpHYAHEHqeXDILrsUXy5N9/kbwik+RCVD+ipt8owjm/4a0weFNLg5VeCU2GrLbIKyY9z/JPY41aaLzuBkr0jgDg/3N4gMWyd16B+amqux4YdFF66u7cZXas6iF3u104Y8mtugK//z11EBXYB4basXGsa3DbVNMFhzRqIhmVxpEvgzJRIug82Ol04a4fvmmppAsoJ089Bbz9LKxd/odA=
         file: artifacts/*dmg
