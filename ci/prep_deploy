@@ -10,7 +10,7 @@ git config --local user.name "trisyoungs"
 git config --local user.email "tristan.youngs@stfc.ac.uk"
 
 # Set a suitable tag for the release
-export TRAVIS_TAG=continuous/$(git log --format=%h -1)
+export TRAVIS_TAG=continuous
 echo "TRAVIS TAG = "$TRAVIS_TAG
-export RELEASE_NAME="Continuous123"
-git tag $TRAVIS_TAG
+export RELEASE_NAME="Continuous at "$(git log --format=%h -1)
+git tag --allow-onelevel $TRAVIS_TAG
