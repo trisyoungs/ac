@@ -13,8 +13,7 @@ DEVBRANCH="master"
 if [ "${TRAVIS_BRANCH}" = "$DEVBRANCH" ]
 then
 	echo "Pruning old continuous releases..."
-	#TAGS=$(curl -XGET --header "Authorization: token ${GITHUB_TOKEN}" https://api.github.com/repos/${TRAVIS_REPO_SLUG}/releases | grep "tag_name" | sed 's/"tag_name": "\(.*\)",/\1/g' )
-	TAGS=$(curl -XGET --header "Authorization: token ${GITHUB_TOKEN}" https://api.github.com/repos/${TRAVIS_REPO_SLUG}/releases)
+	TAGS=$(curl -XGET --header "Authorization: token ${GITHUB_TOKEN}" https://api.github.com/repos/${TRAVIS_REPO_SLUG}/releases | grep "tag_name" | sed 's/"tag_name": "\(.*\)",/\1/g' )
 	echo "  - Found tags: "$TAGS
 	for tag in $TAGS
 	do
@@ -31,5 +30,4 @@ git config --local user.email "tristan.youngs@stfc.ac.uk"
 
 # Set a suitable tag for the release
 export TRAVIS_TAG=continuous/$(git log --format=%h -1)
-export RELEASE_NAME="Continuous"
 git tag $TRAVIS_TAG
