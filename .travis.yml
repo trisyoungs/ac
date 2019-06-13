@@ -13,9 +13,6 @@ addons:
     packages:
       - bison
 
-# Secrets
-secure: "Fwncui/bswru7NBxgLQPKZ+ZynKsukiHuBOzetFJx7D8LCPePISfHtd2i0SWDH/i5bnhfruD81+QdUEwE1mfBwoQXCUiwsYbfnKcBY5Gd1RDCcG0u59Sg93eXgvFdeCdderOu4T+tFYDpyAJOQLAHX6E4Lxm8q1sQ8EWi2SNIB0DUXrRASs16AMOtaYdffwNzAuP8KZhicnbQoo0Cfd78kCf2qbAOkOd6u+LDACaMLdN3jdfC4UB07RXf+MoQgvb0qg9W2jQJrLE9oS6EcfHQvA7zUV0k72p6ZrqMwyvv7AxraWLeZ0rMEWmnwxjG5k0BrUaqMmoclH1ovXd/ZRtfg/qx8uQhYhWAIb4PxGN2cldURZ8sf5PeN5NNZlikZ3wMn+Yjar/dekKLoxAL8s+3MRRKktaGrDOgAUC/TPWG4mmQYCPkVIfiItxGuSON50hydQ9LmIzW+akFfULf8Yu+ITi3/GfRe8Dmrd11ZvfWIy9RxM80iCvwY6MXi6ub3af2pExG0yn15h476RJ+9CsqiSHgsaad22k9H+IY7LXh3Ha7Mg0jbfu2i2QFMV+QajyybfFu91rYNlyExmvhf9/F/IvLkP73+60pSiHIEQdJpJL2kQhdpKq6fyrRoX/60wG8pIYAo1kOaR8erqRS9Shu9ogjtw4ceSP3S0LLJ5MKKg="
-
 # Build Stages
 jobs:
   include:
