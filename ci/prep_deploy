@@ -13,7 +13,8 @@ DEVBRANCH="master"
 if [ "${TRAVIS_BRANCH}" = "$DEVBRANCH" ]
 then
 	echo "Pruning old continuous releases..."
-	TAGS=$(curl -XGET --header "Authorization: token ${GITHUB_TOKEN}" https://api.github.com/repos/${TRAVIS_REPO_SLUG}/releases | grep "tag_name" | sed 's/"tag_name": "\(.*\)",/\1/g' )
+	#TAGS=$(curl -XGET --header "Authorization: token ${GITHUB_TOKEN}" https://api.github.com/repos/${TRAVIS_REPO_SLUG}/releases | grep "tag_name" | sed 's/"tag_name": "\(.*\)",/\1/g' )
+	TAGS=$(curl -XGET --header "Authorization: token ${GITHUB_TOKEN}" https://api.github.com/repos/${TRAVIS_REPO_SLUG}/releases)
 	echo "  - Found tags: "$TAGS
 	for tag in $TAGS
 	do
