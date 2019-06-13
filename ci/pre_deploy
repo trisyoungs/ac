@@ -10,6 +10,7 @@ set +x
 
 # Prune old continuous releases if we are building from the development branch
 DEVBRANCH="master"
+echo "Current branch: '$TRAVIS_BRANCH'"
 if [ "${TRAVIS_BRANCH}" = "$DEVBRANCH" ]
 then
 	echo "Pruning old continuous releases..."
@@ -20,6 +21,8 @@ then
 		if [[ $tag == continuous/* ]]
 		then
 			echo "  ! Deleting $tag..."
+			curl -XDELETE --header "Authorization: token ${GITHUB_TOKEN}" https://api.github.com/repos/${TRAVIS_REPO_SLUG}/releases/${tag}
+
 		fi
 	done
 fi

@@ -23,7 +23,7 @@ jobs:
       cache:
         directories:
           - artifacts
-      before_deploy: ./ci/prep_deploy
+      before_deploy: ./ci/pre_deploy
       deploy:
         provider: releases
         skip_cleanup: true
@@ -39,7 +39,7 @@ jobs:
         directories:
           - artifacts
       script: ./ci/osx.highsierra/osx.build
-      before_deploy: ./ci/prep_deploy
+      before_deploy: ./ci/pre_deploy
       deploy:
         provider: releases
         skip_cleanup: true
