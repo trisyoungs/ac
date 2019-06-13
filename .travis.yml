@@ -27,8 +27,8 @@ jobs:
       deploy:
         provider: releases
         skip_cleanup: true
-        name: 22
-        body: "Continuous build ${TRAVIS_TAG} ${RELEASE_NAME}"
+        name: "Continuous build"
+        body: "Continuous build ${TRAVIS_COMMIT} (${TRAVIS_JOB_WEB_URL})"
         api_key: "${GITHUB_TOKEN}"
         file_glob: true
         file: artifacts/*AppImage
@@ -43,7 +43,10 @@ jobs:
       deploy:
         provider: releases
         skip_cleanup: true
+        name: "Continuous build"
+        body: "Continuous build ${TRAVIS_COMMIT} (${TRAVIS_JOB_WEB_URL})"
         api_key: "${GITHUB_TOKEN}"
+        file_glob: true
         file: artifacts/*dmg
 
 # Branch Safelist (allow only master and version-tagged branches)
