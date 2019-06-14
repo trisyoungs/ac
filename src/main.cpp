@@ -29,7 +29,7 @@
 #include <string>
 using namespace std;
 
-#define VERSION "1.0.1"
+#define VERSION "1.0.2"
 
 // External AtenCalc declaration and constructor definition (to setup options)
 AtenCalc ac;
