@@ -23,7 +23,10 @@ jobs:
       cache:
         directories:
           - artifacts
-      before_deploy: ./ci/pre_deploy
+      before_deploy:
+        - wget -q https://raw.githubusercontent.com/trisyoungs/scripts/master/travis_pre_deploy -O travis_pre_deploy
+        - chmod u+x ./travis_pre_deploy
+        - ./travis_pre_deploy
       deploy:
         provider: releases
         skip_cleanup: true
@@ -39,7 +42,10 @@ jobs:
         directories:
           - artifacts
       script: ./ci/osx.highsierra/osx.build
-      before_deploy: ./ci/pre_deploy
+      before_deploy:
+        - wget -q https://raw.githubusercontent.com/trisyoungs/scripts/master/travis_pre_deploy -O travis_pre_deploy
+        - chmod u+x ./travis_pre_deploy
+        - ./travis_pre_deploy
       deploy:
         provider: releases
         skip_cleanup: true
