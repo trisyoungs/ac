@@ -29,7 +29,9 @@ jobs:
       deploy:
         provider: script
         skip_cleanup: true
-        script: ./travis_deploy -n "Release ${TRAVIS_TAG}" -b "Release" artifacts/*AppImage
+        on:
+          all_branches: true
+        script: ./travis_deploy -n "Release ${TRAVIS_TAG}" -b "Release" -d develop artifacts/*AppImage
     - stage: Build
       name: OSX
       os: osx
@@ -43,10 +45,12 @@ jobs:
       deploy:
         provider: script
         skip_cleanup: true
-        script: ./travis_deploy -n "Release ${TRAVIS_TAG}" -b "Release" artifacts/*dmg
+        on:
+          all_branches: true
+        script: ./travis_deploy -n "Release ${TRAVIS_TAG}" -b "Release" -d develop artifacts/*dmg
 
-# Branch Safelist (allow only master and version-tagged branches)
+# Branch Safelist (allow only develop and version-tagged branches)
 branches:
   only:
-    - master
+    - develop
     - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
