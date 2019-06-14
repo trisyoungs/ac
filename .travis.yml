@@ -24,14 +24,14 @@ jobs:
         directories:
           - artifacts
       before_deploy:
-        - wget -q https://raw.githubusercontent.com/trisyoungs/scripts/master/travis_deploy -O travis_deploy
-        - chmod u+x ./travis_deploy
+        - wget -q https://raw.githubusercontent.com/trisyoungs/scripts/master/travis-deploy -O travis-deploy
+        - chmod u+x ./travis-deploy
       deploy:
         provider: script
         skip_cleanup: true
         on:
           all_branches: true
-        script: ./travis_deploy -n "Release ${TRAVIS_TAG}" -b "Release" -d develop artifacts/*AppImage
+        script: ./travis-deploy -n "Release ${TRAVIS_TAG}" -f Recent.md -w artifacts/*AppImage
     - stage: Build
       name: OSX
       os: osx
@@ -40,14 +40,14 @@ jobs:
           - artifacts
       script: ./ci/osx.highsierra/osx.build
       before_deploy:
-        - wget -q https://raw.githubusercontent.com/trisyoungs/scripts/master/travis_deploy -O travis_deploy
-        - chmod u+x ./travis_deploy
+        - wget -q https://raw.githubusercontent.com/trisyoungs/scripts/master/travis-deploy -O travis-deploy
+        - chmod u+x ./travis-deploy
       deploy:
         provider: script
         skip_cleanup: true
         on:
           all_branches: true
-        script: ./travis_deploy -n "Release ${TRAVIS_TAG}" -b "Release" -d develop artifacts/*dmg
+        script: ./travis-deploy -n "Release ${TRAVIS_TAG}" -f Recent.md -w artifacts/*dmg
 
 # Branch Safelist (allow only develop and version-tagged branches)
 branches:
