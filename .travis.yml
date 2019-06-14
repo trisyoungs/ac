@@ -24,7 +24,7 @@ jobs:
         directories:
           - artifacts
       deploy:
-        provider: releases
+        provider: script
         skip_cleanup: true
         script:
           - wget -q https://raw.githubusercontent.com/trisyoungs/scripts/master/travis_deploy -O travis_deploy
