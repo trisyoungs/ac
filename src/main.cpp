@@ -29,6 +29,8 @@
 #include <string>
 using namespace std;
 
+#define VERSION "1.0.0"
+
 // External AtenCalc declaration and constructor definition (to setup options)
 AtenCalc ac;
 AtenCalc::AtenCalc()
@@ -87,7 +89,7 @@ int main(int argc, char *argv[])
 					// Print help
 					case ('h'):
 						printf("Syntax: ac [options] <expr> [<expr>]\n");
-						printf("\nUsage Notes:\n");
+						printf("\nUsage Notes (%s):\n", VERSION);
 						printf("\t0) The default unit for trigonometric functions is degrees\n");
 						printf("\t   General expression syntax is C-like (i.e. functions need parentheses, commands separated with semicolon etc.)\n");
 						printf("\t1) Arguments passed to ac will be evaluated as expressions\n");
