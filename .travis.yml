@@ -23,18 +23,13 @@ jobs:
       cache:
         directories:
           - artifacts
-      before_deploy:
-        - wget -q https://raw.githubusercontent.com/trisyoungs/scripts/master/travis_pre_deploy -O travis_pre_deploy
-        - chmod u+x ./travis_pre_deploy
-        - ./travis_pre_deploy
       deploy:
         provider: releases
         skip_cleanup: true
-        name: "Continuous build"
-        body: "Continuous build ${TRAVIS_COMMIT} (${TRAVIS_JOB_WEB_URL})"
-        api_key: "${GITHUB_TOKEN}"
-        file_glob: true
-        file: artifacts/*AppImage
+        script:
+          - wget -q https://raw.githubusercontent.com/trisyoungs/scripts/master/travis_deploy -O travis_deploy
+          - chmod u+x ./travis_deploy
+          - ./travis_pre_deploy -n "Release ${TRAVIS_TAG}" -b "Release" artifacts/*AppImage
     - stage: Build
       name: OSX
       os: osx
@@ -42,18 +37,13 @@ jobs:
         directories:
           - artifacts
       script: ./ci/osx.highsierra/osx.build
-      before_deploy:
-        - wget -q https://raw.githubusercontent.com/trisyoungs/scripts/master/travis_pre_deploy -O travis_pre_deploy
-        - chmod u+x ./travis_pre_deploy
-        - ./travis_pre_deploy
       deploy:
-        provider: releases
+        provider: script
         skip_cleanup: true
-        name: "Continuous build"
-        body: "Continuous build ${TRAVIS_COMMIT} (${TRAVIS_JOB_WEB_URL})"
-        api_key: "${GITHUB_TOKEN}"
-        file_glob: true
-        file: artifacts/*dmg
+        script:
+          - wget -q https://raw.githubusercontent.com/trisyoungs/scripts/master/travis_deploy -O travis_deploy
+          - chmod u+x ./travis_deploy
+          - ./travis_pre_deploy -n "Release ${TRAVIS_TAG}" -b "Release" artifacts/*dmg
 
 # Branch Safelist (allow only master and version-tagged branches)
 branches:
