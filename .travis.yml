@@ -53,4 +53,5 @@ jobs:
 branches:
   only:
     - develop
+    - master
     - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
